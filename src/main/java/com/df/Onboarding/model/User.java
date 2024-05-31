@@ -1,8 +1,8 @@
-package com.df.Onboarding;
+package com.df.Onboarding.model;
 
-class Being{
+public class User {
     public String firstName,lastName;
-    Being(String firstName, String lastName){
+    User(String firstName, String lastName){
         this.firstName=firstName;
         this.lastName=lastName;
     }
@@ -21,6 +21,11 @@ class Being{
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String  toString(){
+        return "FirstName : "+this.firstName+" LastName : "+this.lastName;
     }
 
 
