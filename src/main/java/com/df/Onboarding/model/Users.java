@@ -1,10 +1,23 @@
 package com.df.Onboarding.model;
 
-public class User {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+public class Users {
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    int id;
     public String firstName,lastName;
-    User(String firstName, String lastName){
+    public Users(String firstName, String lastName){
         this.firstName=firstName;
         this.lastName=lastName;
+    }
+
+    public Users() {
+
     }
 
     public String getFirstName() {

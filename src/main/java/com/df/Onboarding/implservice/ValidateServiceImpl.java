@@ -1,9 +1,11 @@
 package com.df.Onboarding.implservice;
 
+import com.df.Onboarding.Repo.RepoManager;
 import com.df.Onboarding.exceptions.InvalidUserNameException;
-import com.df.Onboarding.model.User;
 import com.df.Onboarding.model.ResultMessage;
+import com.df.Onboarding.model.Users;
 import com.df.Onboarding.service.Validate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -11,8 +13,10 @@ import org.springframework.stereotype.Service;
 @Component
 public class ValidateServiceImpl implements Validate {
 
+    @Autowired
+    RepoManager repoManager;
     @Override
-    public void checkValidUser(User user, ResultMessage resultMessage) {
+    public void checkValidUser(Users user, ResultMessage resultMessage) {
         System.out.println("User == " +user);
         if(user.getFirstName()==null || user.getLastName()==null){
             throw new InvalidUserNameException("Invalid User Name");
@@ -33,11 +37,13 @@ public class ValidateServiceImpl implements Validate {
 
     }
     public void invalidateUser(ResultMessage resultMessage){
+
         resultMessage.setSuccess(false);
         resultMessage.setMessage("Invalid User");
     }
 
-    public void validateUser(User user, ResultMessage resultMessage){
+    public void validateUser(Users user, ResultMessage resultMessage){
+        repoManager.save(user);
         resultMessage.setSuccess(true);
         resultMessage.setMessage("Congratulations! "+user.getFirstName()+" "+user.getLastName()+". You are now a active user. ");
     }
