@@ -2,8 +2,9 @@ package com.df.Onboarding.controller;
 
 import com.df.Onboarding.exceptions.InvalidUserNameException;
 import com.df.Onboarding.model.ResultMessage;
-import com.df.Onboarding.model.User;
+
 import com.df.Onboarding.implservice.ValidateServiceImpl;
+import com.df.Onboarding.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class Onboarder {
 
     @PostMapping(path="/ping/")
 
-    public ResponseEntity<Object> great(@RequestBody User user){
+    public ResponseEntity<Object> great(@RequestBody Users user){
 
 
 
