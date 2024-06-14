@@ -8,6 +8,10 @@
         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
         http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
 
-<include file="/changelog/versions/version1.xml"/>
+    <include file="/changelog/users/version1.xml"/>
+    <include file="/changelog/users/userdata.xml"/>
+
+
+
 
 </databaseChangeLog>
