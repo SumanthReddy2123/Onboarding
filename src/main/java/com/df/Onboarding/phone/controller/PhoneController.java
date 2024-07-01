@@ -11,7 +11,7 @@ import java.util.Optional;
 @RestController
 public class PhoneController {
     @Autowired
-    PhoneNumberRepo phoneNumberRepo;
+    private PhoneNumberRepo phoneNumberRepo;
 
     @PostMapping("/phone/")
     public void addNumber(@RequestBody PhoneNumber phoneNumber){
@@ -20,12 +20,14 @@ public class PhoneController {
 
 
     @GetMapping("/phone/")
-    public String requestNumbers(@RequestParam int id) {
+    public PhoneNumber requestNumbers(@RequestParam int id) {
         Optional<PhoneNumber> phoneNumber = phoneNumberRepo.findById(id);
         if (phoneNumber.isPresent()) {
-            return phoneNumber.get().getPhoneNumber();
+            return phoneNumber.get();
         } else {
-            return "";
+            PhoneNumber temp = new PhoneNumber();
+            temp.setPhoneNumber("Not found");
+            return temp;
         }
     }
 

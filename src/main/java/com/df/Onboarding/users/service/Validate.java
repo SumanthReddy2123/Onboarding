@@ -5,5 +5,5 @@ import com.df.Onboarding.users.model.ResultMessage;
 import com.df.Onboarding.users.model.Users;
 
 public interface Validate {
-    public void checkValidUser (Users user, ResultMessage resultMessage) throws InvalidUserNameException;
+    public void checkValidUser (Users user, ResultMessage resultMessage, String idempotencyKey) throws InvalidUserNameException;
 }
