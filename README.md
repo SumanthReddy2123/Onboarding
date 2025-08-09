@@ -1,2 +1,2 @@
 # Onboarding
-Spring project to onboard a new user.
+This is a Spring project to onboard a new user.
